@@ -1,0 +1,472 @@
+/* General Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: rgba(248, 249, 250) !important;
+  /* Background color */
+}
+
+/* Full Screen Centering */
+.full-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Sidebar Styles */
+.sidebar-wrapper {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  transition: width 0.3s;
+  /* Smooth transition for width */
+}
+
+/* Sidebar default and collapsed widths */
+.sidebar-wrapper.col-2 {
+  width: 15.4%;
+}
+
+.sidebar-wrapper.col-1,
+.sidebar-wrapper.collapsed {
+  width: 100px;
+  /* Width when collapsed */
+}
+
+/* Sidebar Inner Content */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 20px;
+  /* Optional padding at the bottom */
+}
+
+.sidebar-content {
+  flex: 1;
+  /* Allows this section to grow and take up available space */
+}
+
+.sidebar .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  font-weight: bold;
+}
+
+/* Link Styles */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: rgba(248, 249, 250) !important;
+  color: rgb(21, 21, 21);
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #585858;
+  color: white;
+}
+
+/* Sidebar collapsed styles */
+.sidebar-wrapper.collapsed .logo {
+  display: none;
+  /* Hide logo when collapsed */
+}
+
+.sidebar-wrapper.collapsed a {
+  text-align: center;
+  padding: 8px;
+  /* Reduce padding for collapsed view */
+  font-size: 14px;
+  /* Adjust font size in collapsed mode */
+}
+
+.sidebar-wrapper.collapsed a::after {
+  display: none;
+  /* Remove hover effects in collapsed mode */
+}
+
+/* Toggle Button Styles */
+.btn-toggle {
+  width: 100%;
+  /* Full width toggle button */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
+.sidebar-wrapper.collapsed .btn-toggle {
+  font-size: 24px;
+  /* Increase button size if sidebar is collapsed */
+}
+
+/* Main Content Styles */
+.main-content {
+  transition: margin-left 0.3s;
+  padding: 1px 16px;
+  height: 100%;
+}
+
+.container-fluid {
+  margin-left: 280px;
+  /* Default margin for content */
+}
+
+.main-content.col-10 {
+  margin-left: 15.4%;
+  /* Adjust based on sidebar default width */
+}
+
+.main-content.col-11 {
+  margin-left: 105px;
+  /* Adjust based on collapsed sidebar width */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 710px) {
+  .sidebar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .sidebar-wrapper.col-2 {
+    width: 100%;
+  }
+
+  .main-content.col-10 {
+    margin-left: 7.5%;
+  }
+
+  .sidebar-wrapper {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .btn-toggle {
+    display: none;
+  }
+
+  /* .sidebar .nav-link{
+    width: 100%;
+  } */
+  .sidebar .button {
+    width: 50%;
+  }
+
+  .sidebar-content {
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  .sidebar-wrapper.collapsed {
+    width: 60px;
+    /* Adjust for mobile when collapsed */
+  }
+
+  .main-content {
+    margin-left: 0;
+    /* Reset margin for mobile */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+/* Tagline and other styles */
+.tagline {
+  height: 0;
+  width: 0;
+}
+
+.box {
+  border: 3px solid #ccc;
+  padding: 0px;
+  border-radius: 12px;
+  display: inline-block;
+  font-weight: 400;
+}
+
+/* Text truncation for two lines */
+.truncate-two-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3em;
+  /* Ensures it occupies two lines of space */
+  min-height: 3em;
+  /* Ensures it always has the height of two lines */
+}
+
+.height {
+  font-size: larger !important;
+}
+
+/* Additional styles for the logout button */
+.logout {
+  margin-top: auto;
+  /* Pushes the logout button to the bottom */
+
+}
+
+.opaque-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgb(255, 255, 255);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  transition: transform 0.5s ease;
+  /* background-image: url('/images/Login.svg'); */
+}
+
+
+
+
+.translate-x {
+  transform: translateX(100%);
+  /* Shift to cover the Register side */
+}
+
+.pg {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column;
+    /* For larger screens, items will be side by side */
+  }
+}
+
+/* Optional: You can adjust widths if needed on larger screens */
+@media (min-width: 768px) {
+  .w-md-50 {
+    width: 50%;
+    /* Ensure that on medium screens, elements take half the width */
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.filterNav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.filterNav h5 {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ccc;
+  display: block;
+  transition: 0.3s;
+}
+
+.filterNav .text {
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.filterNav h5:hover {
+  color: #f1f1f1;
+}
+
+.filterNav .text:hover {
+  color: #f1f1f1;
+}
+
+.filterNav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  background-color: #111;
+  border: none;
+  color: #ccc;
+}
+
+@media screen and (max-height: 450px) {
+  .filterNav {
+    padding-top: 15px;
+  }
+
+  .filterNav a {
+    font-size: 14px;
+  }
+}
+
+.filterNav.open {
+  width: 250px;
+}
+
+/* Add these styles in your CSS file or as inline styles in the component */
+
+/* Default styles */
+.d-flex1 {
+  display: flex;
+  align-items: center;
+  /* gap: 8px; Adjust gap between checkbox and label */
+}
+
+.ms-3 {
+  margin-left: 8px;
+}
+
+
+.searchbar {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 60px;
+  /* background-color: #353b48; */
+  background-color: rgb(50, 50, 50);
+  /* background-color:rgb(255, 114, 94) !important; */
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.search_input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 500px;
+  caret-color: transparent;
+  line-height: 40px;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover>.search_input {
+  padding: 0 10px;
+  width: 520px;
+  caret-color: red;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover>.search_icon {
+  background: rgb(55, 33, 33);
+  color: #e74c3c;
+}
+
+.search_icon {
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  /* color: white; */
+  color: rgba(248, 249, 250) !important;
+  text-decoration: none;
+}
+
+/* Responsive styling for screens smaller than 760px */
+@media (max-width: 760px) {
+  .filterNav .d-flex1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Additional padding and adjustments for smaller screens */
+  .filterNav input[type="checkbox"] {
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 860px) {
+  .smaller {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .search_input {
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 280px;
+    caret-color: transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+  }
+
+  .searchbar:hover>.search_input {
+    padding: 0 10px;
+    width: 300px;
+    caret-color: red;
+    transition: width 0.4s linear;
+  }
+  
+  .search_icon {
+    display: none;
+  }
+
+  /* Additional padding and adjustments for smaller screens */
+  .filterNav input[type="checkbox"] {
+    margin-right: 8px;
+  }
+}
+
+.rounded-50 {
+  border-radius: 50px;
+}
+
+.btn-dark1 {
+  background-color: rgb(50, 50, 50);
+  color: white;
+}
+.c-cust
+{
+  background-color: rgb(255, 114, 94) !important;
+}

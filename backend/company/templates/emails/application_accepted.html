@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f7f7f7;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .header {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #0073e6;
+        }
+        .content {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Congratulations! Your Application Has Been Accepted</div>
+        <div class="content">
+            <p>Dear {{ student_name }},</p>
+            <p>We are pleased to inform you that your application for the <strong>{{ job_name }}</strong> position has been accepted.</p>
+            <p>Thank you for choosing us, and welcome to the team!</p>
+            <p>Best Regards,<br>Your Company Recruitment Team</p>
+        </div>
+    </div>
+</body>
+</html>

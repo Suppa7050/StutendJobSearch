@@ -1,0 +1,8 @@
+venv/
+frontend/node_modules/
+# Ignore .env files
+.env
+.env.*
+# Ignore all .env files
+**/.env
+**/.env.*
